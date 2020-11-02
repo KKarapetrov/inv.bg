@@ -6,8 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class ItemsPage extends BasePage {
-
+public class ItemPage extends BasePage {
     private final String URL = "/objects/manage";
 
     @FindBy(how = How.XPATH, using = "//div[@class='userpanel-header']")
@@ -32,7 +31,7 @@ public class ItemsPage extends BasePage {
     private WebElement successCreateMessage;
 
 
-    public ItemsPage(WebDriver driver) {
+    public ItemPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
@@ -79,5 +78,4 @@ public class ItemsPage extends BasePage {
     public String getSuccessCreateMessage() {
         return getText(successCreateMessage);
     }
-
 }

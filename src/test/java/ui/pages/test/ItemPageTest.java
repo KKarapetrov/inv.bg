@@ -1,23 +1,23 @@
 package ui.pages.test;
 
 import api.ItemAPI;
-import api.pojo.Items;
+import api.pojo.Item;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ui.pages.pages.ItemsPage;
+import ui.pages.pages.ItemPage;
 import ui.pages.pages.LoginPage;
 
-public class ItemsPageTest extends BaseTest {
+public class ItemPageTest extends BaseTest {
 
     @Test
     @DisplayName("Can navigate to Items page")
     public void canNavigateToItemsPage() {
         //Page object instances
         LoginPage loginPage = new LoginPage(driver);
-        ItemsPage itemPage = new ItemsPage(driver);
+        ItemPage itemPage = new ItemPage(driver);
         //Login in the system
-        loginPage.login("krum.karapetrov@gmail.com", "admin123");
+        loginPage.login("karamfilovs@gmail.com", "123456");
         //Navigation to Items page
         itemPage.gotoPage();
         //Check that the navigation was successful
@@ -29,10 +29,10 @@ public class ItemsPageTest extends BaseTest {
     public void canCreateNewItem() {
         //Page object instances
         LoginPage loginPage = new LoginPage(driver);
-        ItemsPage itemPage = new ItemsPage(driver);
+        ItemPage itemPage = new ItemPage(driver);
         ItemAPI itemAPI = new ItemAPI();
         //Login in the system
-        loginPage.login("krum.karapetrov@gmail.com", "admin123");
+        loginPage.login("karamfilovs@gmail.com", "123456");
         //Navigation to Items page
         itemPage.gotoPage();
         //Check that the navigation was successful
@@ -49,19 +49,19 @@ public class ItemsPageTest extends BaseTest {
     public void canSearchForItems(){
         //Page object instances
         LoginPage loginPage = new LoginPage(driver);
-        ItemsPage itemPage = new ItemsPage(driver);
+        ItemPage itemPage = new ItemPage(driver);
         ItemAPI itemAPI = new ItemAPI();
         //Login in the system
-        loginPage.login("krum.karapetrov@gmail.com", "admin123");
+        loginPage.login("karamfilovs@gmail.com", "123456");
         itemPage.gotoPage();
-        Items item = Items
+        Item item = Item
                 .builder()
                 .price_for_quantity(5)
                 .quantity_unit("кг.")
                 .build();
 
         for(int i=0; i<10; i++){
-            Items.setName("Bulk Item" + i);
+            item.setName("Bulk Item" + i);
             itemAPI.createItem(item);
         }
 
@@ -71,4 +71,6 @@ public class ItemsPageTest extends BaseTest {
         itemAPI.deleteAllItems();
 
     }
+
+
 }

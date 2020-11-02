@@ -1,6 +1,6 @@
 package api;
 
-import api.pojo.Items;
+import api.pojo.Item;
 import com.jayway.jsonpath.JsonPath;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
@@ -35,14 +35,14 @@ public class ItemAPI extends HTTPClient {
         return response;
     }
 
-    public Response createItem(Items item) {
+    public Response createItem(Item item) {
         Response response = post(ITEM_RESOURCE_PATH, GSON.toJson(item));
         LOGGER.info("The response is:");
         response.prettyPrint();
         return response;
     }
 
-    public Response updateItem(String id, ItemsAPI item) {
+    public Response updateItem(String id, Item item) {
         Response response = put(ITEM_RESOURCE_PATH, id, GSON.toJson(item));
         LOGGER.info("The response is:");
         response.prettyPrint();
