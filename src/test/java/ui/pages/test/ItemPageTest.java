@@ -7,6 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ui.pages.pages.ItemPage;
 import ui.pages.pages.LoginPage;
+import lombok.Builder;
+
 
 public class ItemPageTest extends BaseTest {
 
@@ -17,11 +19,11 @@ public class ItemPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         ItemPage itemPage = new ItemPage(driver);
         //Login in the system
-        loginPage.login("karamfilovs@gmail.com", "123456");
+        loginPage.login("krum.karapetrov@gmail.com", "admin123");
         //Navigation to Items page
         itemPage.gotoPage();
         //Check that the navigation was successful
-        Assertions.assertEquals("Управление на артикули - QA Ground", itemPage.getPageTitle());
+        Assertions.assertEquals("Управление на артикули - krum_karapetrovEOOD", itemPage.getPageTitle());
     }
 
     @Test
@@ -32,7 +34,7 @@ public class ItemPageTest extends BaseTest {
         ItemPage itemPage = new ItemPage(driver);
         ItemAPI itemAPI = new ItemAPI();
         //Login in the system
-        loginPage.login("karamfilovs@gmail.com", "123456");
+        loginPage.login("krum.karapetrov@gmail.com", "admin123");
         //Navigation to Items page
         itemPage.gotoPage();
         //Check that the navigation was successful
@@ -46,13 +48,13 @@ public class ItemPageTest extends BaseTest {
 
 
     @Test
-    public void canSearchForItems(){
+    public void canCreateBulkItems(){
         //Page object instances
         LoginPage loginPage = new LoginPage(driver);
         ItemPage itemPage = new ItemPage(driver);
         ItemAPI itemAPI = new ItemAPI();
         //Login in the system
-        loginPage.login("karamfilovs@gmail.com", "123456");
+        loginPage.login("krum.karapetrov@gmail.com", "admin123");
         itemPage.gotoPage();
         Item item = Item
                 .builder()
