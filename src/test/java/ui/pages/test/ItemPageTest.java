@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ui.pages.pages.ItemPage;
 import ui.pages.pages.LoginPage;
-import lombok.Builder;
+
 
 
 public class ItemPageTest extends BaseTest {
@@ -38,7 +38,7 @@ public class ItemPageTest extends BaseTest {
         //Navigation to Items page
         itemPage.gotoPage();
         //Check that the navigation was successful
-        Assertions.assertEquals("Управление на артикули - QA Ground", itemPage.getPageTitle());
+        Assertions.assertEquals("Управление на артикули - krum_karapetrovEOOD", itemPage.getPageTitle());
         //Create new item via the UI
         itemPage.createItem("Item name 23424", 5, "кг.");
         Assertions.assertEquals("Артикулът е добавен успешно.", itemPage.getSuccessCreateMessage());
@@ -67,7 +67,7 @@ public class ItemPageTest extends BaseTest {
             itemAPI.createItem(item);
         }
 
-        //Search for full and partial match
+
 
         //Clean everything
         itemAPI.deleteAllItems();
